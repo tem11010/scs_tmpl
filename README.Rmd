@@ -1,25 +1,34 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-scs\_tmpl
-=========
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures",
+  out.width = "100%"
+)
+```
+
+# scs_tmpl
 
 SCS template for reports and beamers via Rmarkdown
 
-Installation
-------------
+## Installation
 
-``` r
+```{r, eval = FALSE}
 #install.packages('remotes')
 remotes::install_github('yuliasidi/scs_tmpl')
 ```
 
-Usage
------
+## Usage
 
 In `RStudio` open a new `Rmarkdown` file and choose "UConn - rmarkdown (pdf)" or "UConn - beamer" from the template list.
 
-``` r
+```{r}
 knitr::include_graphics('man/figures/screenshot.png')
 ```
 
-<img src="man/figures/screenshot.png" width="100%" />
