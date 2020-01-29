@@ -1,0 +1,15 @@
+Package: scsuconn
+Type: Package
+Title: SCS template for reports and beamers via Rmarkdown
+Version: 0.1.0
+Authors@R: 
+    person(given = "Yulia",
+           family = "Sidi",
+           role = c("cre","aut"),
+           email = "yulia.sidi@uconn.edu")
+Description: Provides templates for reports and beamers of SCS at UCONN.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: rmarkdown
+LazyData: true
+RoxygenNote: 6.1.1

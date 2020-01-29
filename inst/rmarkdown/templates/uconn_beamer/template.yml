@@ -1,0 +1,4 @@
+name: UConn - beamer
+description: >
+   Utilizes beamer_template.tex and UConn logo.
+create_dir: FALSE

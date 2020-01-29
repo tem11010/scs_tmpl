@@ -1,0 +1,4 @@
+name: UConn - rmarkdown (pdf)
+description: >
+   Utilizes uconntemplate.tex and UConn logo.
+create_dir: FALSE

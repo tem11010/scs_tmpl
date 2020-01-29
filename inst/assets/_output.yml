@@ -1,0 +1,8 @@
+pdf_document:
+  number_sections: true
+  keep_tex: true
+  fig_width: 6
+  fig_height: 4
+  template: uconntemplate.tex
+  include:
+    in_header: header.tex

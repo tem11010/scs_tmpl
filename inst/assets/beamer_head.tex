@@ -1,0 +1,53 @@
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% The beamer theme
+\usetheme{CambridgeUS}
+
+\definecolor{green1}{RGB}{19, 152, 4}
+\definecolor{green2}{RGB}{0, 102, 0}
+% MRG color for structural elements
+%\usecolortheme{default}
+
+% Custom colors for alerts and examples
+%\setbeamercolor{alerted text}{fg=red!95!black}
+%\setbeamercolor{example text}{fg=blue!60!white}
+%
+\setbeamercolor{palette primary}{fg=green2}
+\setbeamercolor{palette secondary}{fg=green2}
+\setbeamercolor{palette tertiary}{bg=green1}
+%\setbeamercolor{palette quaternary}{fg=black,bg=white}
+
+\setbeamercolor*{structure}{fg=green2}
+\setbeamercolor{titlelike}{fg=black,bg=black!2!white}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=green1}
+\setbeamercolor{block body}{use=structure,fg=black,bg=black!5!white}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block body alerted}{bg=black!5!white}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=blue!50!black}
+\setbeamercolor{block body example}{use=structure,fg=black,bg=black!5!white}
+
+
+
+% Copyright in footer
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\copyright \number \year\ \insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\title{MRG Presentation Template}
+\author{Dr. Whoever PhD}
+\institute{Uinversity of Connecticut}
+\date{\today}

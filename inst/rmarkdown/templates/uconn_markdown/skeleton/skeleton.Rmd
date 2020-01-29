@@ -1,0 +1,36 @@
+---
+consultant: "Consultant"
+client: "Client"
+stage: "Draft"
+knit: uconn::knit_to("../report")
+output: uconn::uconn_document
+---
+
+<!----------------------------------------------------------------->
+# Project Outline
+<!-- Brief description of the project, data collected, and goals -->
+
+<!----------------------------------------------------------------->
+# Key Questions
+
+  1. Question 1
+  1. Question 2
+  1. Question 3
+
+<!----------------------------------------------------------------->
+# Key Outcomes
+
+Below we provide \textbf{descriptive statistics} for the data <!-- add description-->. We also present \textbf{statistical models} used to <!-- add description-->. We present the results of these models as <!-- add description (for example: estimated margnial means, i.e., means ajusted for other variables in
+the models)-->. For completeness, all code used to generate these analyses, and all relevant figures and tables will be provided to the client.
+
+<!----------------------------------------------------------------->
+#Descriptive statistics
+
+<!----------------------------------------------------------------->
+#Statistical models
+
+<!----------------------------------------------------------------->
+#Conclusion
+
+
+  
