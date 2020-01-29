@@ -4,8 +4,12 @@
 \alias{uconn_beamer}
 \title{uconn presentation engine}
 \usage{
-uconn_beamer(template = uconn_beamer_template(), toc = TRUE,
-  theme = "CambridgeUS", includes = list())
+uconn_beamer(
+  template = uconn_beamer_template(),
+  toc = TRUE,
+  theme = "CambridgeUS",
+  includes = list()
+)
 }
 \arguments{
 \item{template}{see [rmarkdown::beamer_document]}

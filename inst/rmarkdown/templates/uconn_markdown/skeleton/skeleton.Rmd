@@ -2,8 +2,8 @@
 consultant: "Consultant"
 client: "Client"
 stage: "Draft"
-knit: uconn::knit_to("../report")
-output: uconn::uconn_document
+knit: scsuconn::knit_to("../report")
+output: scsuconn::uconn_document
 ---
 
 <!----------------------------------------------------------------->
@@ -24,13 +24,13 @@ Below we provide \textbf{descriptive statistics} for the data <!-- add descripti
 the models)-->. For completeness, all code used to generate these analyses, and all relevant figures and tables will be provided to the client.
 
 <!----------------------------------------------------------------->
-#Descriptive statistics
+# Descriptive statistics
 
 <!----------------------------------------------------------------->
-#Statistical models
+# Statistical models
 
 <!----------------------------------------------------------------->
-#Conclusion
+# Conclusion
 
 
   

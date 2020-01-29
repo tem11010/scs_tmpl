@@ -4,9 +4,16 @@
 \alias{uconn_document}
 \title{UConn document engine}
 \usage{
-uconn_document(template = uconn_template(), fig_width = 6,
-  fig_height = 4, keep_tex = TRUE, toc = TRUE,
-  number_sections = TRUE, includes = uconn_include(), ...)
+uconn_document(
+  template = uconn_template(),
+  fig_width = 6,
+  fig_height = 4,
+  keep_tex = TRUE,
+  toc = TRUE,
+  number_sections = TRUE,
+  includes = uconn_include(),
+  ...
+)
 }
 \arguments{
 \item{template}{see [rmarkdown::pdf_document]}

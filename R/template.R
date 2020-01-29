@@ -17,7 +17,7 @@ knit_to <- function(output_dir) {
 assets <- function(file) {
   system.file(
     "assets", file,
-    package = "uconn"
+    package = "scsuconn"
   )
 }
 

@@ -2,9 +2,9 @@
 title: "UConn Beamer Presentation Template"
 subtitle: "Presentation Subtitle Here"
 author: "UConn Scientist"
-logo: "`r uconn::uconn_logo()`"
-knit: uconn::knit_to("../presentation")
-output: uconn::uconn_beamer
+logo: "`r scsuconn::uconn_logo()`"
+knit: scsuconn::knit_to("../presentation")
+output: scsuconn::uconn_beamer
 ---
 
 
