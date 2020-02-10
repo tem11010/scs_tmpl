@@ -1,0 +1,90 @@
+---
+title: "Using scsuconn templates for reports and presentations by SCS at UCONN"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "Usage_figures/"
+)
+```
+
+`scsuconn` should be used when writing reports and presentations by SCS consultants at UCONN.
+
+The below steps are recommended for successful workflow:
+
+* install `scsuconn` 
+* create a new project in `Rstudio` for your project
+* create a new `Rmarkdown` doc using 
+
+
+
+```{r setup}
+library(scsuconn)
+```
+
+
+#Table examples:
+
+```{r}
+library(magrittr)
+
+iris_sum <- iris%>%
+  dplyr::group_by(Species)%>%
+  dplyr::summarise_at(.vars = c('Sepal.Length', 'Sepal.Width'), 
+                      .funs = c('mean', 'sd') )
+
+#option 1: print dataframe as is
+knitr::kable(iris_sum, 
+             caption = 'Sepal length/width mean/sd')
+
+#option 2: print dataframe and control the decimals for all the variables at 
+knitr::kable(iris_sum, 
+             caption = 'Sepal length/width mean/sd', digits = 2)
+
+#option 3: print dataframe and control the decimals for each variable separately
+knitr::kable(iris_sum, 
+             caption = 'Sepal length/width mean/sd', digits = c(0,1,1,3,3))
+
+```
+
+```{r}
+iris_setosa <- iris%>%
+  dplyr::filter(Species == 'setosa')
+
+#option 4: Model summary results as tibble, and then knitr into a table
+model1 <- lm(Sepal.Length ~ Sepal.Width, iris_setosa)
+
+```
+
+```{r}
+knitr::kable(broom::tidy(model1), digits = c(0, 2, 3, 2, 4))
+```
+
+```{r, results = 'asis'}
+
+#option 5: Models summary side-by-side
+model2 <- lm(Sepal.Length ~ Sepal.Width + Petal.Length, iris_setosa)
+model3 <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, iris_setosa)
+
+models <- list(model1, model2, model3)
+
+texreg::htmlreg(models, caption = "Statistical models: coefficient estimates", 
+               caption.above = TRUE)
+
+
+```
+
+```{r abc}
+plot(1:10,1:10)
+```
+
+[kableExtra Documentation](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf)
+
+[R graph gallery](https://www.r-graph-gallery.com/)

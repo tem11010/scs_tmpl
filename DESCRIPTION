@@ -13,3 +13,6 @@ Encoding: UTF-8
 Imports: rmarkdown
 LazyData: true
 RoxygenNote: 7.0.2
+Suggests: 
+    knitr
+VignetteBuilder: knitr

@@ -145,7 +145,7 @@ $endif$
 % Create subtitle command for use in maketitle
 \newcommand{\subtitle}[1]{
    \posttitle{
-     \begin{center}\large#1\end{center}
+     \begin{center}\large#1 \end{center}
      }
  }
 
@@ -154,7 +154,7 @@ $endif$
 \newcommand{\stage}{}
 
 $if(stage)$
-\renewcommand{\stage}{$stage$ report }
+\renewcommand{\stage}{$stage$ Report }
 $endif$
 
 \newcommand{\consultant}{}
@@ -162,18 +162,15 @@ $if(consultant)$
 \renewcommand{\consultant}{$consultant$}
 $endif$
 
-\title{\stage for $client$}
-\pretitle{\vspace{\droptitle}\centering\huge}
+\title{\textit{A Report Prepared By\\
+The University of Connecticut's\\
+Statistical Consulting Services\\
+On Behalf Of\\}}
+\pretitle{\vspace{\droptitle}\centering \linespread{1.5} \huge}
 \posttitle{\par}
 
-$if(consultant)$
-  %\author{$for(author)$$author$$sep$ \\ $endfor$}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-$else$
   \author{}
   \preauthor{}\postauthor{}
-$endif$
 $if(date)$
   \predate{\centering\large\emph}
   \postdate{\par}
@@ -198,7 +195,11 @@ $endfor$
 \fi
 
 \usepackage{datetime}
-\newcommand{\todayuconn}{\the\year-\twodigit{\month}-\twodigit{\day}}
+
+\newdateformat{todayuconn}{%
+\THEDAY \  \monthname[\THEMONTH], \THEYEAR}
+%\newcommand{\todayuconn}{%
+%\newcommand{\todayuconn}{\the\year-\twodigit{\month}-\twodigit{\day}}
 
 \usepackage{fancyhdr, lastpage}
 
@@ -230,17 +231,32 @@ $if(subtitle)$
 {\large $subtitle$}
 $endif$
 
-UCONN, SCS
-$if(consultant)$
-, Consultant: \consultant \\
+$if(client)$
+\huge{\textbf{client}}
 $endif$
 
-\todayuconn
+\vspace{3cm}
+$if(consultant)$
+\Large{\textit{Consultants}\\
+\consultant \\
+Timothy E. Moore, Ph.D.}\\
+$endif$
+
+\vspace{2cm}
+
+\todayuconn \today
 
 \end{center}
 
 
-%\newpage
+\newpage
+
+$if(stage)$
+\begin{center}
+\Large{\textbf{\stage\\}}
+\end{center}
+$endif$
+
 
 $body$
 

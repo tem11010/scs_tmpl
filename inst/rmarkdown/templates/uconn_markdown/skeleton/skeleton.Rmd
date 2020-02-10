@@ -2,9 +2,20 @@
 consultant: "Consultant"
 client: "Client"
 stage: "Draft"
-knit: scsuconn::knit_to("../report")
+knit: scsuconn::knit_to(".") #path for the report file
 output: scsuconn::uconn_document
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figures/",
+  tidy.opts=list(width.cutoff=60),
+  tidy=TRUE
+)
+```
+
 
 <!----------------------------------------------------------------->
 # Project Outline
