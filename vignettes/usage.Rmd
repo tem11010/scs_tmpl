@@ -19,9 +19,9 @@ knitr::opts_chunk$set(
 
 The below steps are recommended for successful workflow:
 
-* install `scsuconn` 
+* install `scsuconn` usign `remotes::install_github('yuliasidi/scs_tmpl')`
 * create a new project in `Rstudio` for your project
-* create a new `Rmarkdown` doc using 
+* create a new `Rmarkdown` doc using 'UConn - rmarkdown (pdf)' template
 
 
 
@@ -32,6 +32,10 @@ library(scsuconn)
 
 #Table examples:
 
+See below some examples of tables, which could be useful for your project.
+ 
+If you wish to print `data.frame` as is: 
+
 ```{r}
 library(magrittr)
 
@@ -40,33 +44,41 @@ iris_sum <- iris%>%
   dplyr::summarise_at(.vars = c('Sepal.Length', 'Sepal.Width'), 
                       .funs = c('mean', 'sd') )
 
-#option 1: print dataframe as is
 knitr::kable(iris_sum, 
              caption = 'Sepal length/width mean/sd')
+```
 
-#option 2: print dataframe and control the decimals for all the variables at 
+
+If you wish to print `data.frame` and control the decimals for all the variables
+in the same way:
+```{r}
+
 knitr::kable(iris_sum, 
              caption = 'Sepal length/width mean/sd', digits = 2)
+```
 
-#option 3: print dataframe and control the decimals for each variable separately
+If you wish to print `data.frame` and control the decimals for each variable
+separately:
+
+```{r}
 knitr::kable(iris_sum, 
              caption = 'Sepal length/width mean/sd', digits = c(0,1,1,3,3))
 
 ```
 
+If you wish to print out a statsitical model:
 ```{r}
 iris_setosa <- iris%>%
   dplyr::filter(Species == 'setosa')
 
-#option 4: Model summary results as tibble, and then knitr into a table
 model1 <- lm(Sepal.Length ~ Sepal.Width, iris_setosa)
 
-```
-
-```{r}
 knitr::kable(broom::tidy(model1), digits = c(0, 2, 3, 2, 4))
 ```
 
+
+If you wish to print out models side-by-side comparison, if using pdf (default)
+template, make sure to change `texreg::htmlreg` to `texreg::texreg` below:
 ```{r, results = 'asis'}
 
 #option 5: Models summary side-by-side
@@ -81,9 +93,15 @@ texreg::htmlreg(models, caption = "Statistical models: coefficient estimates",
 
 ```
 
+#Figure examples:
+
+By default all the figures will be saved under figures folder in your project.
+The names of the figures can be specified in the chuck of the code as below
 ```{r abc}
 plot(1:10,1:10)
 ```
+
+
 
 [kableExtra Documentation](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf)
 

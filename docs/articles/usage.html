@@ -85,15 +85,17 @@
 <p><code>scsuconn</code> should be used when writing reports and presentations by SCS consultants at UCONN.</p>
 <p>The below steps are recommended for successful workflow:</p>
 <ul>
-<li>install <code>scsuconn</code>
+<li>install <code>scsuconn</code> usign <code><a href="https://rdrr.io/pkg/remotes/man/install_github.html">remotes::install_github('yuliasidi/scs_tmpl')</a></code>
 </li>
 <li>create a new project in <code>Rstudio</code> for your project</li>
-<li>create a new <code>Rmarkdown</code> doc using</li>
+<li>create a new <code>Rmarkdown</code> doc using ‘UConn - rmarkdown (pdf)’ template</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(scsuconn)</code></pre></div>
 <div id="table-examples" class="section level1">
 <h1 class="hasAnchor">
 <a href="#table-examples" class="anchor"></a>Table examples:</h1>
+<p>See below some examples of tables, which could be useful for your project.</p>
+<p>If you wish to print <code>data.frame</code> as is:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)
 
 iris_sum &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span>
@@ -101,7 +103,6 @@ iris_sum &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span>(<span class="dt">.vars =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Sepal.Length'</span>, <span class="st">'Sepal.Width'</span>), 
                       <span class="dt">.funs =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'mean'</span>, <span class="st">'sd'</span>) )
 
-<span class="co">#option 1: print dataframe as is</span>
 knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
              <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>)</code></pre></div>
 <table class="table">
@@ -137,8 +138,8 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tr>
 </tbody>
 </table>
+<p>If you wish to print <code>data.frame</code> and control the decimals for all the variables in the same way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-<span class="co">#option 2: print dataframe and control the decimals for all the variables at </span>
 knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
              <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
 <table class="table">
@@ -174,9 +175,8 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-<span class="co">#option 3: print dataframe and control the decimals for each variable separately</span>
-knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
+<p>If you wish to print <code>data.frame</code> and control the decimals for each variable separately:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
              <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>))</code></pre></div>
 <table class="table">
 <caption>Sepal length/width mean/sd</caption>
@@ -211,12 +211,13 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tr>
 </tbody>
 </table>
+<p>If you wish to print out a statsitical model:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris_setosa &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(Species <span class="op">==</span><span class="st"> 'setosa'</span>)
 
-<span class="co">#option 4: Model summary results as tibble, and then knitr into a table</span>
-model1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width, iris_setosa)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(broom<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/broom/man/reexports.html">tidy</a></span>(model1), <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</code></pre></div>
+model1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width, iris_setosa)
+
+knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(broom<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/broom/man/reexports.html">tidy</a></span>(model1), <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">term</th>
@@ -242,6 +243,7 @@ model1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r
 </tr>
 </tbody>
 </table>
+<p>If you wish to print out models side-by-side comparison, if using pdf (default) template, make sure to change <code><a href="https://rdrr.io/pkg/texreg/man/texreg.html">texreg::htmlreg</a></code> to <code><a href="https://rdrr.io/pkg/texreg/man/texreg.html">texreg::texreg</a></code> below:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
 <span class="co">#option 5: Models summary side-by-side</span>
 model2 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">+</span><span class="st"> </span>Petal.Length, iris_setosa)
@@ -434,6 +436,11 @@ RMSE
 </td>
 </tr>
 </table>
+</div>
+<div id="figure-examples" class="section level1">
+<h1 class="hasAnchor">
+<a href="#figure-examples" class="anchor"></a>Figure examples:</h1>
+<p>By default all the figures will be saved under figures folder in your project. The names of the figures can be specified in the chuck of the code as below</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/abc-1.png" width="700"></p>
 <p><a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">kableExtra Documentation</a></p>
@@ -448,6 +455,7 @@ RMSE
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#table-examples">Table examples:</a></li>
+      <li><a href="#figure-examples">Figure examples:</a></li>
       </ul>
 </div>
       </div>
