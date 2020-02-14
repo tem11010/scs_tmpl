@@ -4,6 +4,8 @@ client: "Client"
 stage: "Draft"
 knit: scsuconn::knit_to(".") #path for the report file
 output: scsuconn::uconn_document
+params:
+   device: jpeg
 ---
 
 ```{r, include = FALSE}
@@ -12,8 +14,14 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "figures/",
   tidy.opts=list(width.cutoff=60),
-  tidy=TRUE
+  tidy=TRUE,
+  dev = params$device
 )
+
+ggplot2::theme_set(
+  ggplot2::theme_classic()
+)
+
 ```
 
 
