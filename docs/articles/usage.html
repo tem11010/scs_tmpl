@@ -90,21 +90,21 @@
 <li>create a new project in <code>Rstudio</code> for your project</li>
 <li>create a new <code>Rmarkdown</code> doc using ‘UConn - rmarkdown (pdf)’ template</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(scsuconn)</code></pre></div>
-<div id="table-examples" class="section level1">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(scsuconn)</span></code></pre></div>
+<div id="tables" class="section level1">
 <h1 class="hasAnchor">
-<a href="#table-examples" class="anchor"></a>Table examples:</h1>
+<a href="#tables" class="anchor"></a>Tables</h1>
 <p>See below some examples of tables, which could be useful for your project.</p>
 <p>If you wish to print <code>data.frame</code> as is:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)
-
-iris_sum &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(Species)<span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span>(<span class="dt">.vars =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Sepal.Length'</span>, <span class="st">'Sepal.Width'</span>), 
-                      <span class="dt">.funs =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'mean'</span>, <span class="st">'sd'</span>) )
-
-knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
-             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>iris_sum &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(Species)<span class="op">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span>(<span class="dt">.vars =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Sepal.Length'</span>, <span class="st">'Sepal.Width'</span>), </span>
+<span id="cb2-6"><a href="#cb2-6"></a>                      <span class="dt">.funs =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'mean'</span>, <span class="st">'sd'</span>) )</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, </span>
+<span id="cb2-9"><a href="#cb2-9"></a>             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>)</span></code></pre></div>
 <table class="table">
 <caption>Sepal length/width mean/sd</caption>
 <thead><tr class="header">
@@ -139,9 +139,9 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tbody>
 </table>
 <p>If you wish to print <code>data.frame</code> and control the decimals for all the variables in the same way:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
-             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a>knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, </span>
+<span id="cb3-3"><a href="#cb3-3"></a>             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <table class="table">
 <caption>Sepal length/width mean/sd</caption>
 <thead><tr class="header">
@@ -176,8 +176,8 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tbody>
 </table>
 <p>If you wish to print <code>data.frame</code> and control the decimals for each variable separately:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, 
-             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(iris_sum, </span>
+<span id="cb4-2"><a href="#cb4-2"></a>             <span class="dt">caption =</span> <span class="st">'Sepal length/width mean/sd'</span>, <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
 <table class="table">
 <caption>Sepal length/width mean/sd</caption>
 <thead><tr class="header">
@@ -212,12 +212,12 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tbody>
 </table>
 <p>If you wish to print out a statsitical model:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris_setosa &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(Species <span class="op">==</span><span class="st"> 'setosa'</span>)
-
-model1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width, iris_setosa)
-
-knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(broom<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/broom/man/reexports.html">tidy</a></span>(model1), <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>iris_setosa &lt;-<span class="st"> </span>iris<span class="op">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(Species <span class="op">==</span><span class="st"> 'setosa'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>model1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width, iris_setosa)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(broom<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/broom/man/reexports.html">tidy</a></span>(model1), <span class="dt">digits =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">term</th>
@@ -244,16 +244,15 @@ knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/kni
 </tbody>
 </table>
 <p>If you wish to print out models side-by-side comparison, if using pdf (default) template, make sure to change <code><a href="https://rdrr.io/pkg/texreg/man/texreg.html">texreg::htmlreg</a></code> to <code><a href="https://rdrr.io/pkg/texreg/man/texreg.html">texreg::texreg</a></code> below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
-<span class="co">#option 5: Models summary side-by-side</span>
-model2 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">+</span><span class="st"> </span>Petal.Length, iris_setosa)
-model3 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">+</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width, iris_setosa)
-
-models &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(model1, model2, model3)
-
-texreg<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/texreg/man/texreg.html">htmlreg</a></span>(models, <span class="dt">caption =</span> <span class="st">"Statistical models: coefficient estimates"</span>, 
-               <span class="dt">caption.above =</span> <span class="ot">TRUE</span>)</code></pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#option 5: Models summary side-by-side</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>model2 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">+</span><span class="st"> </span>Petal.Length, iris_setosa)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>model3 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">+</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width, iris_setosa)</span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a>models &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(model1, model2, model3)</span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>texreg<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/texreg/man/texreg.html">htmlreg</a></span>(models, <span class="dt">caption =</span> <span class="st">"Statistical models: coefficient estimates"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9"></a>               <span class="dt">caption.above =</span> <span class="ot">TRUE</span>,<span class="dt">doctype =</span> <span class="st">'&lt;!--- COMMENT&gt;'</span>)</span></code></pre></div>
 <table class="table">
 <caption align="top" style="margin-bottom:0.3em;">
 Statistical models: coefficient estimates
@@ -437,12 +436,71 @@ RMSE
 </tr>
 </table>
 </div>
-<div id="figure-examples" class="section level1">
+<div id="figures" class="section level1">
 <h1 class="hasAnchor">
-<a href="#figure-examples" class="anchor"></a>Figure examples:</h1>
-<p>By default all the figures will be saved under figures folder in your project. The names of the figures can be specified in the chuck of the code as below</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/abc-1.png" width="700"></p>
+<a href="#figures" class="anchor"></a>Figures</h1>
+<p>By default all the figures will be saved under figures folder in your project. The names of the figure output files can be specified in the chuck of the code as below</p>
+<p>Below is an example of plotting a simple histogram.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 3.5.2</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>iris<span class="op">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Sepal.Width)) <span class="op">+</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">'#7C878E'</span>, <span class="dt">fill =</span> <span class="st">'#A4C8E1'</span>) <span class="op">+</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Sepal Width"</span>, <span class="dt">y =</span> <span class="st">'Count'</span>, <span class="dt">title =</span> <span class="st">"Histogram example"</span>)</span></code></pre></div>
+<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/sepwidth_hist-1.png" width="70%"></p>
+<p>Below is an example of plotting a simple boxplot.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span>(cyl), <span class="dt">y =</span> mpg)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="dt">fill =</span> <span class="st">"#A4C8E1"</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Number of cylinders"</span>, <span class="dt">y =</span> <span class="st">'Miles/(US) gallon'</span>, <span class="dt">title =</span> <span class="st">'Boxplot example'</span>)</span></code></pre></div>
+<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/mpgcyl_box-1.png" width="70%"></p>
+<p>Below is an example of plotting a simple barplot.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2"></a>mtcars<span class="op">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(cyl)<span class="op">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">freq =</span> <span class="kw">n</span>())<span class="op">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span>(cyl), <span class="dt">y =</span> freq)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"identity"</span>, <span class="dt">fill =</span> <span class="st">"#A4C8E1"</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Number of cylinders"</span>, <span class="dt">y =</span> <span class="st">'Count'</span>, <span class="dt">title =</span> <span class="st">'Barplot example'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; Warning: Calling `n()` without importing or prefixing it is deprecated, use `dplyr::n()`.</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; This warning is displayed once per session.</span></span></code></pre></div>
+<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/mpgcyl_bar-1.png" width="70%"></p>
+<p>Below is an example of plotting a simple scatterplot.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(iris, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>( ) <span class="op">+</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">'Sepal length'</span>, <span class="dt">y =</span> <span class="st">'Sepal width'</span>, <span class="dt">title =</span> <span class="st">'Scatterplot example'</span>) </span></code></pre></div>
+<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/iris_scatter-1.png" width="70%"></p>
+<p>Below is an example of plotting a heatmap.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mydata &lt;-<span class="st"> </span>mtcars[, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>cormat &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(mydata),<span class="dv">2</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># Get lower triangle of the correlation matrix</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>  get_lower_tri&lt;-<span class="cf">function</span>(cormat){</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    cormat[<span class="kw"><a href="https://rdrr.io/r/base/lower.tri.html">upper.tri</a></span>(cormat)] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(cormat)</span>
+<span id="cb11-8"><a href="#cb11-8"></a>  }</span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="co"># Get upper triangle of the correlation matrix</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  get_upper_tri &lt;-<span class="st"> </span><span class="cf">function</span>(cormat){</span>
+<span id="cb11-11"><a href="#cb11-11"></a>    cormat[<span class="kw"><a href="https://rdrr.io/r/base/lower.tri.html">lower.tri</a></span>(cormat)]&lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span>(cormat)</span>
+<span id="cb11-13"><a href="#cb11-13"></a>  }</span>
+<span id="cb11-14"><a href="#cb11-14"></a>  </span>
+<span id="cb11-15"><a href="#cb11-15"></a>upper_tri &lt;-<span class="st"> </span><span class="kw">get_upper_tri</span>(cormat)</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a>melted_cormat &lt;-<span class="st"> </span>reshape2<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/reshape2/man/melt.html">melt</a></span>(upper_tri, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb11-18"><a href="#cb11-18"></a></span>
+<span id="cb11-19"><a href="#cb11-19"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> melted_cormat, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(Var2, Var1, <span class="dt">fill =</span> value)) <span class="op">+</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span>(<span class="dt">color =</span> <span class="st">"white"</span>) <span class="op">+</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span>(<span class="dt">low =</span> <span class="st">"blue"</span>, <span class="dt">high =</span> <span class="st">"red"</span>, <span class="dt">mid =</span> <span class="st">"white"</span>, </span>
+<span id="cb11-22"><a href="#cb11-22"></a>   <span class="dt">midpoint =</span> <span class="dv">0</span>, <span class="dt">limit =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">space =</span> <span class="st">"Lab"</span>, </span>
+<span id="cb11-23"><a href="#cb11-23"></a>   <span class="dt">name=</span><span class="st">"Pearson</span><span class="ch">\n</span><span class="st">Correlation"</span>) <span class="op">+</span></span>
+<span id="cb11-24"><a href="#cb11-24"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">vjust =</span> <span class="dv">1</span>, </span>
+<span id="cb11-25"><a href="#cb11-25"></a>    <span class="dt">size =</span> <span class="dv">8</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
+<span id="cb11-26"><a href="#cb11-26"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></span>
+<span id="cb11-27"><a href="#cb11-27"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">' '</span>, <span class="dt">y =</span> <span class="st">' '</span>, <span class="dt">title =</span> <span class="st">'Heatmap'</span>) </span></code></pre></div>
+<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/heat-1.png" width="70%"></p>
 <p><a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">kableExtra Documentation</a></p>
 <p><a href="https://www.r-graph-gallery.com/">R graph gallery</a></p>
 </div>
@@ -454,8 +512,8 @@ RMSE
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#table-examples">Table examples:</a></li>
-      <li><a href="#figure-examples">Figure examples:</a></li>
+<li><a href="#tables">Tables</a></li>
+      <li><a href="#figures">Figures</a></li>
       </ul>
 </div>
       </div>
