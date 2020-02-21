@@ -148,7 +148,8 @@ Below is an example of plotting a simple scatterplot.
 
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
     geom_point( ) +
-  labs(x = 'Sepal length', y = 'Sepal width', title = 'Scatterplot example') 
+  labs(x = 'Sepal length', y = 'Sepal width', title = 'Scatterplot example') +
+  theme(legend.position = 'bottom')
 
 ```
 
@@ -180,7 +181,7 @@ ggplot(data = melted_cormat, aes(Var2, Var1, fill = value)) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, 
     size = 8, hjust = 1)) +
   coord_fixed() +
-  labs(x = ' ', y = ' ', title = 'Heatmap') 
+  labs(x = ' ', y = ' ', title = 'Heatmap example') 
 
 ```
 

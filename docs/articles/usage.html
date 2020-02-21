@@ -448,13 +448,13 @@ RMSE
 <span id="cb7-5"><a href="#cb7-5"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Sepal.Width)) <span class="op">+</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="dt">bins =</span> <span class="dv">20</span>, <span class="dt">color =</span> <span class="st">'#7C878E'</span>, <span class="dt">fill =</span> <span class="st">'#A4C8E1'</span>) <span class="op">+</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Sepal Width"</span>, <span class="dt">y =</span> <span class="st">'Count'</span>, <span class="dt">title =</span> <span class="st">"Histogram example"</span>)</span></code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/sepwidth_hist-1.png" width="70%"></p>
+<p><img src="usage_files/figure-html/sepwidth_hist-1.png" width="70%"></p>
 <p>Below is an example of plotting a simple boxplot.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span>(cyl), <span class="dt">y =</span> mpg)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="dt">fill =</span> <span class="st">"#A4C8E1"</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Number of cylinders"</span>, <span class="dt">y =</span> <span class="st">'Miles/(US) gallon'</span>, <span class="dt">title =</span> <span class="st">'Boxplot example'</span>)</span></code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/mpgcyl_box-1.png" width="70%"></p>
+<p><img src="usage_files/figure-html/mpgcyl_box-1.png" width="70%"></p>
 <p>Below is an example of plotting a simple barplot.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2"></a>mtcars<span class="op">%&gt;%</span></span>
@@ -465,13 +465,13 @@ RMSE
 <span id="cb9-7"><a href="#cb9-7"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">"Number of cylinders"</span>, <span class="dt">y =</span> <span class="st">'Count'</span>, <span class="dt">title =</span> <span class="st">'Barplot example'</span>)</span>
 <span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; Warning: Calling `n()` without importing or prefixing it is deprecated, use `dplyr::n()`.</span></span>
 <span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; This warning is displayed once per session.</span></span></code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/mpgcyl_bar-1.png" width="70%"></p>
+<p><img src="usage_files/figure-html/mpgcyl_bar-1.png" width="70%"></p>
 <p>Below is an example of plotting a simple scatterplot.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(iris, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Sepal.Width, <span class="dt">color =</span> Species)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>( ) <span class="op">+</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">'Sepal length'</span>, <span class="dt">y =</span> <span class="st">'Sepal width'</span>, <span class="dt">title =</span> <span class="st">'Scatterplot example'</span>) </span></code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/iris_scatter-1.png" width="70%"></p>
+<p><img src="usage_files/figure-html/iris_scatter-1.png" width="70%"></p>
 <p>Below is an example of plotting a heatmap.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mydata &lt;-<span class="st"> </span>mtcars[, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)]</span>
 <span id="cb11-2"><a href="#cb11-2"></a>cormat &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="kw"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(mydata),<span class="dv">2</span>)</span>
@@ -500,7 +500,7 @@ RMSE
 <span id="cb11-25"><a href="#cb11-25"></a>    <span class="dt">size =</span> <span class="dv">8</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb11-26"><a href="#cb11-26"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></span>
 <span id="cb11-27"><a href="#cb11-27"></a><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="dt">x =</span> <span class="st">' '</span>, <span class="dt">y =</span> <span class="st">' '</span>, <span class="dt">title =</span> <span class="st">'Heatmap'</span>) </span></code></pre></div>
-<p><img src="../../../Consulting%20Projects/scs_tmpl/vignettes/Usage_figures/heat-1.png" width="70%"></p>
+<p><img src="usage_files/figure-html/heat-1.png" width="70%"></p>
 <p><a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">kableExtra Documentation</a></p>
 <p><a href="https://www.r-graph-gallery.com/">R graph gallery</a></p>
 </div>
