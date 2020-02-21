@@ -110,7 +110,7 @@ The names of the figure output files can be specified in the chuck of the code a
 
 Below is an example of plotting a simple histogram. 
 
-```{r sepwidth_hist}
+```{r sepwidth_hist, warning = FALSE}
 library(ggplot2)
 
 iris%>%
@@ -136,7 +136,7 @@ Below is an example of plotting a simple barplot.
 
 mtcars%>%
   dplyr::group_by(cyl)%>%
-  dplyr::summarise(freq = n())%>%
+  dplyr::summarise(freq = dplyr::n())%>%
   ggplot(aes(x = as.factor(cyl), y = freq)) + 
   geom_bar(stat = "identity", fill = "#A4C8E1") + 
   labs(x = "Number of cylinders", y = 'Count', title = 'Barplot example')
