@@ -93,7 +93,7 @@ model3 <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, iris_setos
 models <- list(model1, model2, model3)
 
 texreg::htmlreg(models, caption = "Statistical models: coefficient estimates", 
-               caption.above = TRUE)
+               caption.above = TRUE,doctype = '<!--- COMMENT>')
 
 
 ```
