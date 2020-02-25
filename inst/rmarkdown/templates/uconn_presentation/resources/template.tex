@@ -1,0 +1,107 @@
+\documentclass[]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\setbeamertemplate{caption}[numbered]
+
+\useinnertheme{default}
+\useoutertheme[footline=authorinstitute,subsection=false]{miniframes}
+%\useoutertheme{sidebar}
+\usecolortheme{uconn}
+\usefonttheme{uconn}
+
+\usepackage{amsmath}
+
+\bibliographystyle{unsrtnat}
+\usepackage[sort&compress,square,numbers]{natbib}
+
+\usefonttheme{professionalfonts}
+\usepackage[space]{grffile}
+\hypersetup{pdfnewwindow=true}
+
+\newcommand{\red}{\color{red}}
+
+\usepackage[utf8]{inputenc}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$if(title)$
+\title{$title$}
+$else$
+\title{SCS Presentation Template}
+$endif$
+
+$if(subtitle)$
+  \subtitle{$subtitle$}
+$endif$
+
+$if(author)$
+\author{$author$}
+$else$
+\author{UConn Scientist}
+$endif$
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+
+$for(include-before)$
+  $include-before$
+$endfor$
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(dir)$
+  \ifxetex
+  % load bidi as late as possible as it modifies e.g. graphicx
+  $if(latex-dir-rtl)$
+    \usepackage[RTLdocument]{bidi}
+  $else$
+    \usepackage{bidi}
+  $endif$
+  \fi
+  \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+    \TeXXeTstate=1
+    \newcommand{\RL}[1]{\beginR #1\endR}
+    \newcommand{\LR}[1]{\beginL #1\endL}
+    \newenvironment{RTL}{\beginR}{\endR}
+    \newenvironment{LTR}{\beginL}{\endL}
+  \fi
+$endif$
+
+
+$if(logo)$
+  \titlegraphic{\includegraphics[width=80px]{$logo$}}
+$endif$
+
+\begin{document}
+
+% Hide progress bar and footline on titlepage
+$if(title)$
+  \begin{frame}%[plain]
+  \titlepage
+  \end{frame}
+$endif$
+
+
+$if(toc)$
+  \begin{frame}
+  \tableofcontents[hideallsubsections]
+  \end{frame}
+$endif$
+
+$body$
+
+\end{document}

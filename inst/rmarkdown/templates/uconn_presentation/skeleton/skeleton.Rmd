@@ -4,7 +4,7 @@ subtitle: "Presentation Subtitle Here"
 author: "UConn Scientist"
 logo: "`r scsuconn::uconn_logo()`"
 knit: scsuconn::knit_to("../presentation")
-output: scsuconn::uconn_beamer
+output: scsuconn::uconn_presentation
 ---
 
 

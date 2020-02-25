@@ -2,10 +2,10 @@
 % Please edit documentation in R/template.R
 \name{uconn_logo}
 \alias{uconn_logo}
-\title{Location of uconnlogo.pdf file}
+\title{Location of uconnlogo file}
 \usage{
 uconn_logo()
 }
 \description{
-Location of uconnlogo.pdf file
+Location of uconnlogo file
 }

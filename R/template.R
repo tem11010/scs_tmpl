@@ -14,31 +14,10 @@ knit_to <- function(output_dir) {
 }
 
 
-assets <- function(file) {
-  system.file(
-    "assets", file,
-    package = "scsuconn"
-  )
-}
-
-##' Location of uconntemplate.tex
-##'
-##' @export
-uconn_template <- function() {
-  assets("uconntemplate.tex")
-}
-
-##' Location of uconn beamer template
-##'
-##' @export
-uconn_beamer_template <- function() {
-  assets("beamer_template.tex")
-}
-
-##' Location of uconnlogo.pdf file
+##' Location of uconnlogo file
 ##' @export
 uconn_logo <- function() {
-  assets("uconnlogo.png")
+  system.file("assets","uconnlogo.png",package = "scsuconn")
 }
 
 ##' Return a list of includes
@@ -46,50 +25,70 @@ uconn_logo <- function() {
 ##' @param header by default `header.tex`
 ##' @param ... passed to [rmarkdown::includes]
 ##' @export
-uconn_include <- function(header = assets("header.tex"), ...) {
+uconn_include <- function(header = system.file("rmarkdown/templates/uconn_document/resources/header.tex",package = 'scsuconn'), ...) {
   rmarkdown::includes(in_header = header, ...)
 }
 
 ##' UConn document engine
 ##'
-##' @param template see [rmarkdown::pdf_document]
 ##' @param fig_width see [rmarkdown::pdf_document]
 ##' @param fig_height see [rmarkdown::pdf_document]
 ##' @param keep_tex see [rmarkdown::pdf_document]
 ##' @param toc see [rmarkdown::pdf_document]
 ##' @param number_sections see [rmarkdown::pdf_document]
 ##' @param includes see [rmarkdown::pdf_document]
-##' @param ... passed to [rmarkdown::pdf_document]
+##' @param \dots passed to [rmarkdown::pdf_document]
 ##' @export
-uconn_document <- function(template = uconn_template(),
-                         fig_width = 6, fig_height = 4,
-                         keep_tex = TRUE,
-                         toc = TRUE, number_sections = TRUE,
-                         includes = uconn_include(), ...) {
+uconn_document <- function(...,
+                           fig_width = 6,
+                           fig_height = 4,
+                           keep_tex = TRUE,
+                           toc = TRUE,
+                           number_sections = TRUE,
+                           includes = uconn_include()) {
 
-  rmarkdown::pdf_document(
-    toc = toc, keep_tex = keep_tex, includes = includes,
-    fig_width = fig_width, fig_height = fig_height, template = template,
-    ...
-  )
+  pdf_document_format("uconn_document", toc = toc, keep_tex = keep_tex, includes = includes,
+                      fig_width = fig_width, fig_height = fig_height,
+                      ...)
+
 }
 
 ##' uconn presentation engine
 ##'
 ##' Build a beamer presentation with uconn branding.
 ##'
-##' @param template see [rmarkdown::beamer_document]
-##' @param toc  not used
-##' @param includes see [rmarkdown::beamer_document]
-##' @param theme see [rmarkdown::beamer_document]
-##' @param ... passed to [rmarkdown::beamer_document]
+##' @param \dots passed to [rmarkdown::beamer_presentation]
 ##' @export
-uconn_beamer <- function(template = uconn_beamer_template(),
-                       toc = TRUE, theme = "CambridgeUS",
-                       includes = list()) {
+uconn_presentation <- function(...) {
 
-  rmarkdown::beamer_presentation(
-    toc = toc, includes = includes, theme = theme,
-    template = template
+  beamer_presentation_format("uconn_presentation", ...)
+
+}
+
+find_resource <- function(template, file = 'template.tex') {
+  res <- system.file(
+    "rmarkdown", "templates", template, "resources", file, package = "scsuconn"
   )
+  if (res == "") stop(
+    "Couldn't find template file ", template, "/resources/", file, call. = FALSE
+  )
+  res
+}
+
+# Helper function to create a custom format derived from pdf_document that
+# includes a custom LaTeX template
+pdf_document_format <- function(
+  format, template = find_resource(format, 'template.tex'), ...
+) {
+  fmt <- rmarkdown::pdf_document(..., template = template)
+  fmt$inherits <- "pdf_document"
+  fmt
+}
+
+beamer_presentation_format <- function(
+  format, template = find_resource(format, 'template.tex'), ...
+) {
+  fmt <- rmarkdown::beamer_presentation(..., template = template)
+  fmt$inherits <- "beamer_presentation"
+  fmt
 }

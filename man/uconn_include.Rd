@@ -4,7 +4,11 @@
 \alias{uconn_include}
 \title{Return a list of includes}
 \usage{
-uconn_include(header = assets("header.tex"), ...)
+uconn_include(
+  header = system.file("rmarkdown/templates/uconn_document/resources/header.tex",
+    package = "scsuconn"),
+  ...
+)
 }
 \arguments{
 \item{header}{by default `header.tex`}

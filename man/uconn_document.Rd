@@ -5,18 +5,17 @@
 \title{UConn document engine}
 \usage{
 uconn_document(
-  template = uconn_template(),
+  ...,
   fig_width = 6,
   fig_height = 4,
   keep_tex = TRUE,
   toc = TRUE,
   number_sections = TRUE,
-  includes = uconn_include(),
-  ...
+  includes = uconn_include()
 )
 }
 \arguments{
-\item{template}{see [rmarkdown::pdf_document]}
+\item{\dots}{passed to [rmarkdown::pdf_document]}
 
 \item{fig_width}{see [rmarkdown::pdf_document]}
 
@@ -29,8 +28,6 @@ uconn_document(
 \item{number_sections}{see [rmarkdown::pdf_document]}
 
 \item{includes}{see [rmarkdown::pdf_document]}
-
-\item{...}{passed to [rmarkdown::pdf_document]}
 }
 \description{
 UConn document engine
