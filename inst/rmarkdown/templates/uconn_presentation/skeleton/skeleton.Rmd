@@ -1,45 +1,52 @@
 ---
-title: "UConn Beamer Presentation Template"
-subtitle: "Presentation Subtitle Here"
-author: "UConn Scientist"
+title: "Statistical Consulting Services"
+subtitle: "Workshop title"
+author: "Consultants names"
 logo: "`r scsuconn::uconn_logo()`"
 knit: scsuconn::knit_to("../presentation")
-output: scsuconn::uconn_presentation
+output: 
+  scsuconn::uconn_presentation:
+    toc: true
 ---
 
 
 ```{r,setup, include=FALSE}
-knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(cache=TRUE, collapse = TRUE, out.height = "2.75in",  
+                      out.width = "4in")
+
+ggplot2::theme_set(
+  ggplot2::theme_classic()
+)
 ```
 
-# First Section
 
-## First Frame
 
-Hello, world!
+# First section
 
-# Second Section
+## Title of the slide
 
-## Second Frame
+This is an awesome workshop by the amazing team of SCS.
 
-### Bulleted Lists
-- Element A
-- Element B
-    - B.1
-    - B.2
-- Element C    
+## Title of the slide
 
-# Elements
+Let's talk some cool statistics now.
 
-## Typography
+# Second section
 
-```
-The theme provides sensible defaults to
-\emph{emphasize} text, \alert{accent} parts
-or show \textbf{bold} results.
+## Title of the slide
 
-In Markdown, you can also use _emphasize_ and **bold**.
-```
+### Here is an example of making bulleted list
+- Clean your data
+- Look visually at the data
+    - Some bar-plots
+    - Some histograms
+    - Some boxplots
+- Run some stat models
+    - `lm()` function
+    - `glm()` function
+- Diagnostics
+
+## Title of the slide
 
 \begin{center}becomes\end{center}
 
@@ -58,28 +65,25 @@ In Markdown, you can also use _emphasize_ and **bold**.
 
 ## R Figure Example
 
-The following code generates the plot on the next slide (taken from
-`help(bxp)` and modified slightly):
+The following code generates the plot on the next slide:
 
 ```{r pressureCode, eval=FALSE}
-library(stats)
-set.seed(753)
-bx.p <- boxplot(split(rt(100, 4),
-                      gl(5, 20)), plot=FALSE)
-bxp(bx.p, notch = FALSE, boxfill = "lightblue",
-    frame = FALSE, outl = TRUE,
-    main = "Example from help(bxp)")
+library(ggplot2)
+
+ggplot(mtcars, aes(x = as.factor(cyl), y = mpg)) + 
+    geom_boxplot(fill = "#A4C8E1") + 
+    labs(x = "Number of cylinders", 
+         y = 'Miles/(US) gallon')
+
 ```  
 
 
 ## R Figure Example
   
-```{r pressureFig, echo=FALSE}
-library(stats)
-set.seed(753)
-bx.p <- boxplot(split(rt(100, 4),
-                      gl(5, 20)), plot=FALSE)
-bxp(bx.p, notch = FALSE, boxfill = "lightblue",
-    frame = FALSE, outl = TRUE,
-    main = "Example from help(bxp)")
+```{r, echo=FALSE, warning=FALSE}
+library(ggplot2)
+
+ggplot(mtcars, aes(x = as.factor(cyl), y = mpg)) + 
+    geom_boxplot(fill = "#A4C8E1") + 
+    labs(x = "Number of cylinders", y = 'Miles/(US) gallon')
 ```  
