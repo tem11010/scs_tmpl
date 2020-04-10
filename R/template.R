@@ -16,8 +16,8 @@ knit_to <- function(output_dir) {
 
 ##' Location of uconnlogo file
 ##' @export
-uconn_logo <- function() {
-  system.file("assets","uconnlogo.png",package = "scsuconn")
+uconn_images <- function(img = 'uconnlogo.png') {
+  system.file("assets", img, package = "scsuconn")
 }
 
 ##' Return a list of includes

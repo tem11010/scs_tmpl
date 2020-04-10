@@ -2,7 +2,7 @@
 title: "Statistical Consulting Services"
 subtitle: "Workshop title"
 author: "Consultants names"
-logo: "`r scsuconn::uconn_logo()`"
+logo: "`r scsuconn::uconn_images()`"
 knit: scsuconn::knit_to("../presentation")
 output: 
   scsuconn::uconn_presentation:
@@ -87,3 +87,17 @@ ggplot(mtcars, aes(x = as.factor(cyl), y = mpg)) +
     geom_boxplot(fill = "#A4C8E1") + 
     labs(x = "Number of cylinders", y = 'Miles/(US) gallon')
 ```  
+
+
+# Contact Info
+
+## Contact Info
+
+\begin{tabular}{m{1cm}m{7cm}}
+
+\includegraphics[height=0.1\textheight]{`r scsuconn::uconn_images('001-world.png')`} & Whetten Graduate School Building \newline 438 Whitney Rd Ext. \newline Storrs, CT 06269 \\
+\includegraphics[height=0.1\textheight]{`r scsuconn::uconn_images('004-mouse.png')`} \hspace{2mm} & statsconsulting.uconn.edu \\
+\includegraphics[height=0.1\textheight]{`r scsuconn::uconn_images('002-mail.png')`} \hspace{2mm} & timothy.e.moore@uconn.edu \\
+\includegraphics[height=0.1\textheight]{`r scsuconn::uconn_images('003-internet.png')`} \hspace{2mm} & @UCONNSCS
+
+\end{tabular}

@@ -5,7 +5,7 @@ stage: "Draft"
 knit: scsuconn::knit_to(".") #path for the report file
 output: scsuconn::uconn_document
 params:
-   device: jpeg
+   device: !r c('pdf','jpeg')
 ---
 
 ```{r, include = FALSE}
